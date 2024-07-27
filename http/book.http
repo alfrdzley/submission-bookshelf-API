@@ -1,0 +1,17 @@
+### GET request to example server
+GET http://localhost:9000/books
+
+### POST a book
+POST http://localhost:9000/books
+Content-Type: application/json
+
+{
+  "name": "A Million Years",
+  "year": "1989",
+  "author": "Al-Jabbar Hafidz",
+  "summary": "Want to customize your own color scheme of Rainbow Brackets? Edit it under Settings > Editor > Color Scheme > Rainbow Brackets",
+  "publisher": "Al-Jazeera",
+  "pageCount": 109,
+  "readPage": 98,
+  "reading": "50"
+}

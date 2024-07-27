@@ -13,21 +13,21 @@ const addBookHandler = (request, h) => {
   } = request.payload;
   if (!name) {
     return h
-      .response({
-        status: "fail",
-        message: "Gagal menambahkan buku. Mohon isi nama buku",
-      })
-      .code(400);
+        .response({
+          status: "fail",
+          message: "Gagal menambahkan buku. Mohon isi nama buku",
+        })
+        .code(400);
   }
 
   if (readPage > pageCount) {
     return h
-      .response({
-        status: "fail",
-        message:
-          "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount",
-      })
-      .code(400);
+        .response({
+          status: "fail",
+          message:
+              "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount",
+        })
+        .code(400);
   }
   const id = nanoid(16);
   const insertedAt = new Date().toISOString();
@@ -76,7 +76,7 @@ const getAllBooksHandler = (request, h) => {
   if (query.name) {
     const searchName = query.name.toLowerCase();
     filteredBooks = filteredBooks.filter((book) =>
-      book.name.toLowerCase().includes(searchName)
+        book.name.toLowerCase().includes(searchName)
     );
   }
 
@@ -84,7 +84,7 @@ const getAllBooksHandler = (request, h) => {
   if (query.reading === "0" || query.reading === "1") {
     const readingValue = query.reading === "1";
     filteredBooks = filteredBooks.filter(
-      (book) => book.reading === readingValue
+        (book) => book.reading === readingValue
     );
   }
 
@@ -92,7 +92,7 @@ const getAllBooksHandler = (request, h) => {
   if (query.finished === "0" || query.finished === "1") {
     const finishedValue = query.finished === "1";
     filteredBooks = filteredBooks.filter(
-      (book) => book.finished === finishedValue
+        (book) => book.finished === finishedValue
     );
   }
 
@@ -141,21 +141,21 @@ const editBookByIdHandler = (request, h) => {
   } = request.payload;
   if (!name) {
     return h
-      .response({
-        status: "fail",
-        message: "Gagal memperbarui buku. Mohon isi nama buku",
-      })
-      .code(400);
+        .response({
+          status: "fail",
+          message: "Gagal memperbarui buku. Mohon isi nama buku",
+        })
+        .code(400);
   }
 
   if (readPage > pageCount) {
     return h
-      .response({
-        status: "fail",
-        message:
-          "Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount",
-      })
-      .code(400);
+        .response({
+          status: "fail",
+          message:
+              "Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount",
+        })
+        .code(400);
   }
   const updatedAt = new Date().toISOString();
   const index = books.findIndex((book) => book.id === id);
